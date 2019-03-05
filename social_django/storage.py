@@ -2,7 +2,9 @@
 import base64
 import six
 import sys
-from django.core.exceptions import FieldDoesNotExist
+#from django.core.exceptions import FieldDoesNotExist
+# aiming for Django v1.5 backwards compatibility:
+from django.db.models.fields import FieldDoesNotExist
 from django.db import transaction
 from django.db.utils import IntegrityError
 

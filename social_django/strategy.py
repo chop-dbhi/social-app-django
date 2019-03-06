@@ -5,7 +5,9 @@ from django.db.models import Model
 from django.contrib.contenttypes.models import ContentType
 from django.contrib.auth import authenticate
 from django.shortcuts import redirect, resolve_url
-from django.template import TemplateDoesNotExist, loader, engines
+# r3m0: WAS: from django.template import TemplateDoesNotExist, loader, engines
+# r3m0: TESTING w/o the above engines for backwards Django v1.5 compatibility: 
+from django.template import TemplateDoesNotExist, loader
 from django.utils.crypto import get_random_string
 from django.utils.encoding import force_text
 from django.utils.functional import Promise
@@ -18,7 +20,10 @@ from .compat import get_request_port
 def render_template_string(request, html, context=None):
     """Take a template in the form of a string and render it for the
     given context"""
-    template = engines['django'].from_string(html)
+    # r3m0: WAS: template = engines['django'].from_string(html)
+    # TODO: determine a real backwards alternative to the template engine, but for a quick test....
+    # r3m0: TESTING w/o the above engines for backwards Django v1.5 compatibility: 
+    template = "<!-- WARNING: r3m0 testing without Django engine. -->".html)
     return template.render(context=context, request=request)
 
 

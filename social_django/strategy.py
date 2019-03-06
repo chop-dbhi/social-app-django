@@ -23,7 +23,7 @@ def render_template_string(request, html, context=None):
     # r3m0: WAS: template = engines['django'].from_string(html)
     # TODO: determine a real backwards alternative to the template engine, but for a quick test....
     # r3m0: TESTING w/o the above engines for backwards Django v1.5 compatibility: 
-    template = "<!-- WARNING: r3m0 testing without Django engine. -->".html)
+    template = "<!-- WARNING: r3m0 testing without Django engine. -->".html
     return template.render(context=context, request=request)
 
 
